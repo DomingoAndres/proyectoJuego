@@ -1,6 +1,6 @@
 package com.proyecto1;
 
-public class Item {
+public abstract class Item {
 
     
     //Atributos
@@ -39,7 +39,7 @@ public class Item {
         }
     }
 
-    public void use(){
-        System.out.println("Using " + name);
-    }
+    public abstract void use();
+        
+    
 }
