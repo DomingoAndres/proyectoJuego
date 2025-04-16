@@ -5,16 +5,38 @@ import java.util.ArrayList;
 public class Inventory {
 
     private ArrayList<Item> items;
-    
+    private int capacityLimit;
+    private int actualCapacity;
 
 
-    public Inventory(){
+    public Inventory(int capacityLimit){
         items = new ArrayList<>();
+        this.capacityLimit = capacityLimit;
+        this.actualCapacity = 0;
     }
 
-    public void addItem(Item item){
-        items.add(item);
-        System.out.println("Item added: " + item.getName());
+    public int getCapacityLimit(){
+        return capacityLimit;
+    }
+
+    public void setCapacityLimit(int capacityLimit){
+        if(capacityLimit > 0){
+            this.capacityLimit = capacityLimit;
+        }else{
+            System.out.println("Limit capacity has to be more tha 0.");
+            return;
+        }
+    }
+
+    public void addItem(Item item){ 
+        if(actualCapacity < capacityLimit){
+            items.add(item);
+            actualCapacity ++;
+            System.out.println("Item added: " + item.getName());
+            System.out.println("Your actual capacity is: " + actualCapacity);
+        }else{
+            System.out.println("You have no more capacity.");
+        }
     }
 
 
@@ -35,14 +57,13 @@ public class Inventory {
         }
     }
 
-    public void deleteItem(Item item){
-        for(Item it : items){
-            if(it.getName() == item.getName()){
-                items.remove(item);
-                System.out.println("Item eliminado correctamente.");
-            }else{
-                System.out.println("Item no encontrado en el inventario");
-            }
+    public void deleteItem(int index){
+        if ((index >= 0 && index < items.size())){
+            items.remove(index);
+            actualCapacity --;
+            System.out.println("Objeto eliminado.");
+        }else{
+            System.out.println("Item not found.");
         }
     }
 }

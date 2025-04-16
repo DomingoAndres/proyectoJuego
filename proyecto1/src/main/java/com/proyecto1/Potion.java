@@ -1,6 +1,6 @@
 package com.proyecto1;
 
-public class Potion extends Item {
+public class Potion extends Item implements Consumable{
 
     private int healing;
 
@@ -24,5 +24,10 @@ public class Potion extends Item {
     @Override
     public void use(){
         System.out.println("Healing with " + getName() + ", points recovered: " + healing);
+    }
+
+    @Override
+    public void consume(){
+        System.out.println("Consumiendo pocion, recuperando vida.");
     }
 }

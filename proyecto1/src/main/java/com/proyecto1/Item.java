@@ -6,6 +6,7 @@ public abstract class Item {
     //Atributos
     private String name;
     private int value;
+    //Tambien se deberia agregar atributo de espacio para reflejar en el inventario?
 
     
     //Constructor

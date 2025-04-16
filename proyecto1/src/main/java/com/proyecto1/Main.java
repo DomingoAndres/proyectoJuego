@@ -4,27 +4,33 @@ public class Main {
     public static void main(String[] args) {
         
         
-        Item sword = new Item("Sword", 20);
-
-        Item validar = new Item("Validar", 0);
 
         Weapon axe = new Weapon("noob killer", 10, 50);
 
-        Potion juiuce = new Potion("Juguito", 5, 20);
+        Potion juice = new Potion("Juguito", 5, 20);
         
         axe.use();
-        juiuce.use();
+        juice.use();
         axe.use(25);
 
-        Inventory bag = new Inventory();
+        Inventory bag = new Inventory(5);
 
         bag.addItem(axe);
-        bag.addItem(juiuce);
+        bag.addItem(juice);
         
     
         bag.useItem(1);
 
         bag.showInventory();
+
+        bag.deleteItem(0);
+
+        Npc monster = new Npc(100, "Rodolfo");
+        Character warrior = new Character(100, "Dom", bag);
+
+        warrior.attack(monster);
+        monster.attack(warrior);
+
     }
 
 }
