@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Inventory {
 
     private ArrayList<Item> items;
+    
 
 
     public Inventory(){
@@ -31,6 +32,17 @@ public class Inventory {
             items.get(index).use();
         }else{
             System.out.println("Invalid index.");
+        }
+    }
+
+    public void deleteItem(Item item){
+        for(Item it : items){
+            if(it.getName() == item.getName()){
+                items.remove(item);
+                System.out.println("Item eliminado correctamente.");
+            }else{
+                System.out.println("Item no encontrado en el inventario");
+            }
         }
     }
 }
