@@ -4,6 +4,7 @@ public abstract class LivingEntity implements IDamagable{
 
     private int maxHealth;
     private int currentHealth;
+    private boolean isDead = false;
 
 
     public LivingEntity(int maxHealth){
@@ -17,6 +18,14 @@ public abstract class LivingEntity implements IDamagable{
 
     public int getCurrentHEalth(){
         return currentHealth;
+    }
+
+    public boolean getIsDead(){
+        return isDead;
+    }
+
+    public void setIsDead(boolean isDead){
+        this.isDead = isDead;
     }
 
     @Override

@@ -1,8 +1,12 @@
 package com.proyecto1;
 
 public class Npc extends LivingEntity{
-    public Npc(int maxHealth){
+    
+    private String name;
+    
+    public Npc(int maxHealth, String name){
         super(maxHealth);
+        this.name = name;
     }
 
 
